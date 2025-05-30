@@ -26,14 +26,19 @@ def save_images(images, filenames, folder):
 
 
 def warp_image(image, H):
+<<<<<<< HEAD
     print('Orginal image shape:', image.shape)
     output_size = (image.shape[1]+100, image.shape[0]+100)  
+=======
+    output_size = (image.shape[1]+200, image.shape[0]+200)  
+>>>>>>> 9bd2c5330126f656210f3cf81c825f51605cdae3
     warped_image = cv2.warpPerspective(image, H, output_size, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0))
     restored_image = cv2.warpPerspective(warped_image, np.linalg.inv(H), output_size, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0))
     return restored_image
 
 imgs = load_images_from_folder('example_images')
 
+<<<<<<< HEAD
 #H = np.array([[2.31320524,-9.04064327e-01, -3.26032166e+02],[5.65874219e-01,1.57498169e+00,-3.26032166e+02],[1.36785640e-03, -1.78844988e-04,1.00000000e+00]])
 #H = cv2.getAffineTransform(np.float32([[0, 0], [1, 0], [0, 1]]), np.float32([[0, 0], [1, 0], [0, 1]]))
 #H = np.eye(3, dtype=np.float32)
@@ -60,4 +65,8 @@ resized_halvesimgs = [cv2.resize(img, (int(img.shape[1]*2), int(img.shape[0]*2))
 save_images(resized_halvesimgs,[f for f in os.listdir('example_images')],'resizehalf_images')
 #save_images(gblurred_images, 'gblurred_images')
 
+=======
+# H = np.array([[2.31320524,-9.04064327e-01, -3.26032166e+02],[5.65874219e-01,1.57498169e+00,-3.26032166e+02],[1.36785640e-03, -1.78844988e-04,1.00000000e+00]])
+H = np.eye(3)  # Identity matrix for no transformation
+>>>>>>> 9bd2c5330126f656210f3cf81c825f51605cdae3
 
