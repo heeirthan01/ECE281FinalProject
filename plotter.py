@@ -12,9 +12,9 @@ with open('out.example_images.csv', newline='') as csvfile:
 
 ground_truth = [round(logit) for logit in gtlogits]
 
-files = ['out.warped_images.csv','out.example_images.csv','out.rotated_images.csv','out.rotated_images225.csv','out.rotated_warped_images225.csv']
-filenames = ['yang_warped.png','example_imageserror.png','rotated_45error.png','rotated_225error.png','rotate_and_warped225error.png']
-titles = ['Pure Identity Transform','Original','Rotated 45', 'Rotated 225', 'Rotated 225 + Identity Transform']
+files = ['out.gblurred_images.csv','out.downsamphalf_images.csv','out.warped_images.csv','out.example_images.csv','out.rotated_images.csv','out.rotated_images225.csv','out.rotated_warped_images225.csv']
+filenames = ['gblurred_error.png','downsampled_error.png','yang_warped.png','example_imageserror.png','rotated_45error.png','rotated_225error.png','rotate_and_warped225error.png']
+titles = ['Gaussian Blurred','Downsampled by 2','Pure Identity Transform','Original','Rotated 45', 'Rotated 225', 'Rotated 225 + Identity Transform']
 for j in range(len(files)):
     logits = []
     with open(files[j], newline='') as csvfile:

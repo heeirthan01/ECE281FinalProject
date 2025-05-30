@@ -51,14 +51,14 @@ rotate_images225 = [rotate_image(img, 225) for img in imgs]
 
 #rot_warp_225 = [warp_image(img,np.eye(3, dtype=np.float32)) for img in rotate_images225]
 #save_images(rot_warp_225, [f for f in os.listdir('example_images')], 'rotated_warped_images225')
-#gblurred_images = [cv2.GaussianBlur(img, (15, 15), 200) for img in imgs]
+gblurred_images = [cv2.GaussianBlur(img, (9, 9), 3) for img in imgs]
 #H = np.diag(np.random.uniform(0.5, 20, size=3).astype(np.float32))
 #diag_check = [warp_image(img, H) for img in imgs]
 #save_images(diag_check, 'diagonal_images')
-downsampledhalves_imgs = [cv2.resize(img, (int(img.shape[1]/2), int(img.shape[0]/2))) for img in imgs]
-resized_halvesimgs = [cv2.resize(img, (int(img.shape[1]*2), int(img.shape[0]*2))) for img in downsampledhalves_imgs]
+#downsampledhalves_imgs = [cv2.resize(img, (int(img.shape[1]/2), int(img.shape[0]/2))) for img in imgs]
+#resized_halvesimgs = [cv2.resize(img, (int(img.shape[1]*2), int(img.shape[0]*2))) for img in downsampledhalves_imgs]
 #save_images(downsampledhalves_imgs,[f for f in os.listdir('example_images')],'downsamphalf_images')
-save_images(resized_halvesimgs,[f for f in os.listdir('example_images')],'resizehalf_images')
+save_images(gblurred_images,[f for f in os.listdir('example_images')],'gblurred_images')
 #save_images(gblurred_images, 'gblurred_images')
 
 # H = np.array([[2.31320524,-9.04064327e-01, -3.26032166e+02],[5.65874219e-01,1.57498169e+00,-3.26032166e+02],[1.36785640e-03, -1.78844988e-04,1.00000000e+00]])
