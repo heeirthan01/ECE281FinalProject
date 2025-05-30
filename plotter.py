@@ -42,6 +42,6 @@ for j in range(len(files)):
     plt.savefig(f'figures/{filenames[j]}')
     plt.show()
 
-    yang_stuff = []    
+    
 
 
