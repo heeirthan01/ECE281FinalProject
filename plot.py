@@ -36,16 +36,17 @@ def plot_images_with_gt(gt: pd.DataFrame, df_list, process_type_list) -> None:
     gt_logit = gt['logit'].to_list()
 
     _, ax = plt.subplots()
-    ax.scatter(image_name, gt_logit, label='Ground Truth Logit', color='red', alpha=0.6)
+    ax.plot(image_name, gt_logit, label='Ground Truth', alpha=0.6)
     for i in range(len(df_list)):
         logit = df_list[i]['logit'].to_list()
         ax.scatter(image_name, logit, label=process_type_list[i], alpha=0.6)
     ax.set_xlabel('Images')
     ax.set_ylabel('Logit Value')
-    ax.set_title('Comparison of Warped Images and Ground Truth Logits')
+    ax.set_title('Comparison of Transformed Images and Ground Truth Logits')
     ax.legend()
 
-csv_list = ['out.warped_images.csv','out.rotated_images.csv','out.rotated_images225.csv','out.rotated_warped_images225.csv', 'out.downsamphalf_images.csv', 'out.downsamphalf_images.csv']
+csv_list = ['out.warped_images.csv','out.rotated_images.csv','out.rotated_images225.csv','out.rotated_warped_images225.csv', 'out.downsamphalf_images.csv', 
+            'out.gblurred_images.csv']
 ground_truth = pd.read_csv('out.example_images.csv')
 ground_truth = process_dataframe(ground_truth)
 ground_truth['logit'] = ground_truth['logit'].round()
