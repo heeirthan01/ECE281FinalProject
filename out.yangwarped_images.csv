@@ -33,4 +33,3 @@ filename,logit,time
 ./warped_images\real_realgan_warped.png,0.001148,0.045000
 ./warped_images\real_stylegan_warped.png,0.000000,0.046000
 ./warped_images\real_stylegan_warped.png,0.000000,0.046002
->>>>>>> 9bd2c5330126f656210f3cf81c825f51605cdae3
